@@ -190,3 +190,30 @@ vector<int> Graph::spath(int src,int dest, vector<vector<int>> edges,int vertice
     reverse(path.begin(),path.end());
     return path;
 }
+
+vector<int> Graph::bellmanFordDist(int src, vector<vector<int>> edges,int vertices){
+    vector<int> distance(vertices,INT_MAX);
+    distance[src] =0;
+
+    for(int i=0;i<vertices-1;i++){
+        for(auto x : edges){
+            int u=x[0];
+            int v=x[1];
+            int w=x[2];
+            if(distance[u] != INT_MAX && distance[u]+w<distance[v])
+                distance[v] = distance[u]+w;
+        }
+    }
+    //for negative cycle 
+    for(auto x : edges){
+        int u=x[0];
+            int v=x[1];
+            int w=x[2];
+            if(distance[u] != INT_MAX && distance[u]+w<distance[v]){
+                cout<<"Negative cycle is present"<<endl;
+                return {};
+            }
+    }
+    return distance;
+    
+}

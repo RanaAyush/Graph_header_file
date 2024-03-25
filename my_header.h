@@ -27,6 +27,9 @@ public:
     vector<int> dijkstraDist(int src, vector<vector<int>> edges,int vertices);//shortest distance array
     int dijkstraDist(int src,int dest, vector<vector<int>> edges,int vertices);//shortest distance
 
+    //Bellmanford Algo
+    vector<int> bellmanFordDist(int src, vector<vector<int>> edges,int vertices);//shortest distance array
+    
     //shortest path
     vector<int> spath(int src,int dest, vector<pair<int,int>> edges,int vertices);//unweighted graph
     vector<int> spath(int src,int dest, vector<vector<int>> edges,int vertices);//weighted graph

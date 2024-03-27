@@ -40,8 +40,10 @@ void run_dfs(int src, unordered_map<int, bool> &visited, vector<int> &traversal,
     }
 }
 
+Graph::Graph(){}
 Graph::Graph(vector<pair<int, int>> edges) : edges(edges){}
 Graph::Graph(vector<vector<int>> edges) : wtdEdges(edges){}
+
 
 
 void Graph::createAdjList()
@@ -214,6 +216,21 @@ vector<int> Graph::bellmanFordDist(int src, vector<vector<int>> edges,int vertic
                 return {};
             }
     }
+    return distance;   
+}
+
+vector<vector<int>> Graph::floydWarshallDist(vector<vector<int>> edgeMatrix){
+    vector<vector<int>> distance = edgeMatrix;
+    int inf = INT_MAX;
+    int n = edgeMatrix.size();
+
+    for(int k=0;k<n;k++){
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i!=k && j!=k && distance[i][k]!=inf && distance[k][j]!=inf && distance[i][j]>distance[i][k]+distance[k][j])
+                        distance[i][j] = distance[i][k]+distance[k][j];
+            }
+        }
+    }
     return distance;
-    
 }

@@ -12,6 +12,7 @@ class Graph
     unordered_map<int, vector<int>> adjLst;
     unordered_map<int,list<pair<int,int>>> wtdAdjlst;
 public:
+    Graph();
     Graph(vector<pair<int, int>> edges);
     Graph(vector<vector<int>> edges);
     void createAdjList();
@@ -29,6 +30,9 @@ public:
 
     //Bellmanford Algo
     vector<int> bellmanFordDist(int src, vector<vector<int>> edges,int vertices);//shortest distance array
+
+    //floyd-Warshall algo for shortest distance between each edge
+    vector<vector<int>> floydWarshallDist(vector<vector<int>> edgeMatrix);
     
     //shortest path
     vector<int> spath(int src,int dest, vector<pair<int,int>> edges,int vertices);//unweighted graph

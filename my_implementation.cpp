@@ -130,7 +130,7 @@ int Graph::dijkstraDist(int src,int dest, vector<vector<int>> edges,int vertices
     return dist[dest];
 }
 
-vector<int> Graph::spath(int src,int dest, vector<pair<int,int>> edges,int vertices){
+vector<int> Graph::sPath(int src,int dest, vector<pair<int,int>> edges,int vertices){
     vector<int> path;
     createAdjList();
     queue<int> q;
@@ -157,7 +157,7 @@ vector<int> Graph::spath(int src,int dest, vector<pair<int,int>> edges,int verti
     reverse(path.begin(),path.end());
     return path;
 }
-vector<int> Graph::spath(int src,int dest, vector<vector<int>> edges,int vertices){
+vector<int> Graph::sPath(int src,int dest, vector<vector<int>> edges,int vertices){
     createWtdAdjList();
     vector<int> distance(vertices,INT_MAX);
     vector<int> parent(vertices);

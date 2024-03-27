@@ -35,8 +35,8 @@ public:
     vector<vector<int>> floydWarshallDist(vector<vector<int>> edgeMatrix);
     
     //shortest path
-    vector<int> spath(int src,int dest, vector<pair<int,int>> edges,int vertices);//unweighted graph
-    vector<int> spath(int src,int dest, vector<vector<int>> edges,int vertices);//weighted graph
+    vector<int> sPath(int src,int dest, vector<pair<int,int>> edges,int vertices);//unweighted graph
+    vector<int> sPath(int src,int dest, vector<vector<int>> edges,int vertices);//weighted graph
 
 };
 

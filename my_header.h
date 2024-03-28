@@ -38,6 +38,9 @@ public:
     vector<int> sPath(int src,int dest, vector<pair<int,int>> edges,int vertices);//unweighted graph
     vector<int> sPath(int src,int dest, vector<vector<int>> edges,int vertices);//weighted graph
 
+    //Topological Sort for graphs
+    vector<int> topoSort(int V, vector<vector<int>> edges);
+
 };
 
 #endif

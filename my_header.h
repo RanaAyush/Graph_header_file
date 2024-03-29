@@ -41,6 +41,9 @@ public:
     //Topological Sort for graphs
     vector<int> topoSort(int V, vector<vector<int>> edges);
 
+    // spanning trees 
+    //1-> MST using prismAlgo
+    vector<vector<int>> prismMST(int n);
 };
 
 #endif

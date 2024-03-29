@@ -285,8 +285,8 @@ vector<int> Graph::topoSort(int V, vector<vector<int>> edges)
     stack<int> st;
     for (int i = 0; i < V; i++)
     {
-        if(!visited[i])
-        runTopo(i, visited, st, adjList);
+        if (!visited[i])
+            runTopo(i, visited, st, adjList);
     }
     while (!st.empty())
     {
@@ -294,4 +294,45 @@ vector<int> Graph::topoSort(int V, vector<vector<int>> edges)
         st.pop();
     }
     return ans;
+}
+
+vector<vector<int>> Graph::prismMST(int n)
+{
+    createWtdAdjList();
+    vector<int> key(n + 1, INT_MAX);
+    vector<bool> mst(n + 1, false);
+    vector<int> parent(n + 1, -1);
+
+    key[1] = 0;
+    for (int i = 1; i < n; i++)
+    {
+        int mini = INT_MAX;
+        int u;
+
+        for (int v = 1; v <= n; v++)
+        {
+            if (mst[v] == false && key[v] < mini)
+            {
+                mini = key[v];
+                u = v;
+            }
+        }
+        mst[u] = true;
+        for (auto x : wtdAdjlst[u])
+        {
+            int v = x.first;
+            int w = x.second;
+            if (mst[v] == false && w < key[v])
+            {
+                parent[v] = u;
+                key[v] = w;
+            }
+        }
+    }
+    vector<vector<int>> res;
+    for (int i = 2; i <= n; i++)
+    {
+        res.push_back({parent[i], i, key[i]});
+    }
+    return res;
 }

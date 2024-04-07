@@ -19,3 +19,13 @@ We can use this header file in our code so that we donot have to write code for 
   7.Topological sort
 
 for both directed and undirected graphs.
+
+steps to use :
+
+1. copy my_header.h and my_implementation.cpp where you want to use these in code. 
+2. Then import header file using: 
+        #include "my_header.h"
+3. you are done u can use all the graph functionalities just by making make Object of Graph 
+    and pass edges into it.
+4. you can refer run_.cpp to see how we can use the library.
+

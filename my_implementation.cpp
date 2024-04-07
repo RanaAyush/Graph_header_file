@@ -322,7 +322,7 @@ vector<vector<int>> Graph::prismMST(int n)
         {
             int v = x.first;
             int w = x.second;
-            if (mst[v] == false && w < key[v])
+            if ( w < key[v])
             {
                 parent[v] = u;
                 key[v] = w;
